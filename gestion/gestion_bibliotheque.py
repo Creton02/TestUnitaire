@@ -12,13 +12,13 @@ class Livre:
           objet.titre = titre
           objet.auteur = auteur
           objet.ISBN = ISBN
-          objet.date_parturion = date_parution
+          objet.date_parution = date_parution
           ## Si la date ne respecte pas le format suivant (Mois XXXX), elle est automatique remplacée par la date (Janvier 2000)
           regex = r"^[A-Za-zéèêëîïôöûüÉÈÊËÎÏÔÖÛÜ]+ \d{4}$"
           if re.match(regex, objet.date_parution):
                pass
           else:
-               objet.date_parturion = "Janvier 2000"
+               objet.date_parution = "Janvier 2000"
           objet.est_emprunte = False
           objet.emprunteur = -1
 
@@ -32,7 +32,7 @@ class Livre:
           """
           retour = ""
           retour += f"[{objet.id}] - "
-          retour += f"{objet.titre} ({objet.date_parturion}) "
+          retour += f"{objet.titre} ({objet.date_parution}) "
           retour += f"Auteur(e) : {objet.auteur} "
           est_disponible = "OUI"
           if objet.est_emprunte == True:
@@ -151,7 +151,7 @@ class Bibliotheque:
           """
           retour = []
           for livre in range(len(objet.inventaire_livres)):
-               if objet.inventaire_livres[livre].nom == nom_auteur:
+               if objet.inventaire_livres[livre] == nom_auteur:
                     retour.append(objet.inventaire_livres[livre])
           return retour
      

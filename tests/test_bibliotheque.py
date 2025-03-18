@@ -1,7 +1,10 @@
 
-import gestion.gestion_bibliotheque as bl
-import unittest
 
+import unittest
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from gestion import gestion_bibliotheque as bl
 
 class TestBibliotheque(unittest.TestCase):
 
@@ -18,13 +21,14 @@ class TestBibliotheque(unittest.TestCase):
     
     def tester_ajouter_membre(objet):
         print("\nTest (Bibliotheque) - Ajouter un membre")
-
+        
         #État initial
-  
+        objet.assertEqual(len(objet.bibliotheque.membres), 0, "La bibliothèque est vide au départ")
         #Ajout d'un premier membre
-      
+        objet.bibliotheque.ajouter_membre(objet.membre_1)
+        objet.assertIn(objet.membre_1, objet.bibliotheque.membres, "Le membre à été ajouté correctement")
         #Ajout d'un deuxième membre
-     
+        objet.bibliotheque.ajouter_membre(objet.membre_2)
         #Ajout d'un membre existant
       
     
