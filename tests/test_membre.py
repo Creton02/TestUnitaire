@@ -44,13 +44,17 @@ class TestMembre(unittest.TestCase):
         objet.assertEqual(objet.membre.determiner_nombre_livres_empruntes(), 2, "Problème d'ajouts (Nombre de livres incorrect)")
 
         #Rapporter un livre
-
+        objet.membre.rapporter_livre(objet.livre_1)
+        objet.assertEqual(objet.membre.determiner_nombre_livres_empruntes(), 1, "Problème de retour (Nombre de livres incorrect)")
         #Rapporter le même livre
-     
+        objet.membre.rapporter_livre(objet.livre_1)
+        objet.assertEqual(objet.membre.determiner_nombre_livres_empruntes(), 1, "Problème de retour anormal (Nombre de livres incorrect)")
         #Rapporter un livre non-emprunté (3)
-    
+        objet.membre.rapporter_livre(objet.livre_3)
+        objet.assertEqual(objet.membre.determiner_nombre_livres_empruntes(), 1, "Probléme de retour anormal (Nombre de livres incorrect)")
         #Rapporter le dernier livre
-      
+        objet.membre.rapporter_livre(objet.livre_2)
+        objet.assertEqual(objet.membre.determiner_nombre_livres_empruntes(), 0, "Problème de retour (Nombre de livres incorrect)")
         #Rapporter un livre quelconque (Liste vide)
    
 
