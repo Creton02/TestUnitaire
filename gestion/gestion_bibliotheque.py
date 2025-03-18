@@ -101,6 +101,12 @@ class Bibliotheque:
 
      def ajouter_livre(objet, livre:Livre):
           liste_id = faire_liste_identifiants(objet.inventaire_livres)
+          if livre.id not in liste_id:
+               objet.inventaire_livres.append(livre)
+               print(f"Le livre No {livre.id} a été ajouté dans l'inventaire.")
+          else:
+               print(f"Le livre No {livre.id} est déja dans l'inventaire.")
+          objet.inventaire_livres
           """
           Cette fonction doit ajouter un livre dans l'inventaire
 
@@ -113,6 +119,11 @@ class Bibliotheque:
 
      def supprimer_livre(objet, livre:Livre):
           liste_id = faire_liste_identifiants(objet.inventaire_livres)
+          if livre.id in liste_id:
+               objet.inventaire_livres.remove(livre)
+               print(f"Le livre No {livre.id} a été supprimé de l'inventaire.")
+          else:
+               print(f"Le livre No {livre.id} n'était pas dans l'inventaire, il ne peut être supprimé.")
           """
           Cette fonction doit supprimer un livre de l'inventaire
 
@@ -134,22 +145,30 @@ class Bibliotheque:
      def rechercher_par_auteur(objet, nom_auteur:str):
           """
           Cette fonction doit retourner une liste des livres qui respecte le critère de nom
-
           Pour tous les livres de l'inventaire de la bibliothèque
                Si le nom de l'auteur est égal au nom du l'auteur du livre actuel
                     On ajoute ce livre          
           """
+          retour = []
+          for livre in range(len(objet.inventaire_livres)):
+               if objet.inventaire_livres[livre].nom == nom_auteur:
+                    retour.append(objet.inventaire_livres[livre])
+          return retour
      
      
      def rechercher_par_titre(objet, titre:str):
-           """
+          """
           Cette fonction doit retourner une liste des livres qui respecte le critère de titre
 
           Pour tous les livres de l'inventaire de la bibliothèque
                Si le titre reçu est contenu (in) dans le titre du livre actuel
                     On ajoute ce livre          
           """
-
+          retour = []
+          for livre in range(len(objet.inventaire_livres)):
+               if objet.inventaire_livres[livre].titre == titre:
+                    retour.append(objet.inventaire_livre[livre])
+          return retour
 
 def faire_liste_identifiants(liste_a_analyser):
      liste_id = []
