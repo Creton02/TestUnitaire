@@ -1,6 +1,8 @@
-import gestion_bibliotheque as bl
 import unittest
-
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from gestion import gestion_bibliotheque as bl
 
 class TestLivre(unittest.TestCase):
 
@@ -13,8 +15,12 @@ class TestLivre(unittest.TestCase):
         print("\nTest (Livre) - Affichage valide")
         objet.assertEqual(objet.livre_test_valide.afficher_description(), "[1] - Dune (Août 1965) Auteur(e) : Frank Herbert [Disponible : OUI]", "L'objet n'a pas été créé avec les bonnes informations")
 
-   
     # test : tester_afficher_invalide
+    def tester_afficher_invalide(objet):
+        print("\nTest (Livre) - Affichage invalide")
+        objet.assertEqual(objet.livre_test_invalide.afficher_description(), "[23] - Python pour les nuls (Janvier 2000) Auteur(e) : John-Paul Mueller [Disponible : OUI]", "L'objet n'a pas été créé avec les bonnes informations")
+   
+
 
 if __name__ == "__main__":
     unittest.main()

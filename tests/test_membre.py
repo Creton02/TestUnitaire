@@ -1,6 +1,8 @@
-import gestion_bibliotheque as bl
 import unittest
-
+import sys
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from gestion import gestion_bibliotheque as bl
 
 class TestMembre(unittest.TestCase):
     
