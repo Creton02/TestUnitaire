@@ -109,12 +109,14 @@ class TestBibliotheque(unittest.TestCase):
         objet.assertEqual(objet.bibliotheque.determiner_grandeur_inventaire(), 4, "Problème d'ajouts (Nombre de livres incorrect)")
 
         #Recherche par auteur (1 livre)
-        nombre_livres_trouves = objet.bibliotheque.rechercher_par_auteur("Ira Levin")
-
+        nombre_livres_trouves = len(objet.bibliotheque.rechercher_par_auteur("Ira Levin"))
+        objet.assertEqual(nombre_livres_trouves, 1, "Problème de recherche par auteur (Nombre de livres incorrect)")
         #Recherche par auteur (2 livres)
-       
+        nombre_livres_trouves = len(objet.bibliotheque.rechercher_par_auteur("J. R. R. Tolkien"))
+        objet.assertEqual(nombre_livres_trouves, 2, "Problème de recherche par auteur (Nombre de livres incorrect)")
         #Recherche par auteur (0 livre)
-       
+        nombre_livres_trouves = len(objet.bibliotheque.rechercher_par_auteur("Mathéo Bégin"))
+        objet.assertEqual(nombre_livres_trouves, 0, "Problème de recherche par auteur (Nombre de livres incorrect)")
 
     def tester_rechercher_par_titre(objet):  #PAS COMPLÉTÉ
         print("\nTest (Bibliotheque) - Rechercher par titre")
@@ -129,7 +131,9 @@ class TestBibliotheque(unittest.TestCase):
         objet.assertEqual(objet.bibliotheque.determiner_grandeur_inventaire(), 4, "Problème d'ajouts (Nombre de livres incorrect)")
 
         #Recherche par titre (1 livre)
- 
+        nombre_livres_trouves = len(objet.bibliotheque.rechercher_par_titre("Le seigneur des anneaux"))
+        objet.assertEqual(nombre_livres_trouves, 1, "Problème de recherche par titre (Nombre de livres incorrect)")
+
         #Recherche par titre (0 livre)
     
 

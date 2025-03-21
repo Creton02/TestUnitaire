@@ -56,7 +56,7 @@ class TestMembre(unittest.TestCase):
         objet.membre.rapporter_livre(objet.livre_2)
         objet.assertEqual(objet.membre.determiner_nombre_livres_empruntes(), 0, "Problème de retour (Nombre de livres incorrect)")
         #Rapporter un livre quelconque (Liste vide)
-   
+            #Pas compris ce numéro
 
 if __name__ == "__main__":
     unittest.main()

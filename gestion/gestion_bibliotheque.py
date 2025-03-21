@@ -106,7 +106,7 @@ class Bibliotheque:
                print(f"Le livre No {livre.id} a été ajouté dans l'inventaire.")
           else:
                print(f"Le livre No {livre.id} est déja dans l'inventaire.")
-          objet.inventaire_livres
+          
           """
           Cette fonction doit ajouter un livre dans l'inventaire
 
@@ -132,7 +132,7 @@ class Bibliotheque:
           Sinon
                On affiche un message approprié       
           """
-
+          
 
      def determiner_grandeur_inventaire(objet):
           return len(objet.inventaire_livres)
@@ -151,7 +151,7 @@ class Bibliotheque:
           """
           retour = []
           for livre in range(len(objet.inventaire_livres)):
-               if objet.inventaire_livres[livre] == nom_auteur:
+               if objet.inventaire_livres[livre].auteur == nom_auteur:
                     retour.append(objet.inventaire_livres[livre])
           return retour
      
@@ -167,7 +167,7 @@ class Bibliotheque:
           retour = []
           for livre in range(len(objet.inventaire_livres)):
                if objet.inventaire_livres[livre].titre == titre:
-                    retour.append(objet.inventaire_livre[livre])
+                    retour.append(objet.inventaire_livres[livre])
           return retour
 
 
